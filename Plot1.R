@@ -12,8 +12,6 @@ df = sqldf("select * from fi where Date = '1/2/2007' or Date = '2/2/2007'",
 #Close SQL connection
 close(fi)
 
-#df$Date = as.Date(df$Date, "%d/%m/%y")
-
 #Combine Date & time into one field
 df$DateTime = with(df, paste(Date, Time))
 df = df[, -c(1:2)]
@@ -21,5 +19,7 @@ df = df[, -c(1:2)]
 #convert DateTime from char
 df$DateTime = strptime(df$DateTime, "%Y-%m-%d %H:%M:%S")
 
-#create histogram plot
+#create histogram plot & save to png file
+png("plot1.png", width = 480, height = 480, units = "px")
 hist(df$Global_active_power, col = "red", main = "Global Active Power", xlab = "Global Active Power (kilowatts", ylab = "Frequency")
+dev.off()

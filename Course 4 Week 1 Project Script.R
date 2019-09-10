@@ -1,7 +1,7 @@
 require(sqldf)
 library(sqldf)
-require(naniar)
-library(naniar)
+# require(naniar)
+# library(naniar)
 
 filename = "C:\\Users\\Patrick\\datasciencecoursera\\Course 4\\household_power_consumption.txt"
 fi = file(filename)
