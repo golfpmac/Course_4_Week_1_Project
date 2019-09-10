@@ -2,7 +2,8 @@ require(sqldf)
 library(sqldf)
 
 #loads file path and filename
-filename = "C:\\Users\\Patrick\\datasciencecoursera\\Course 4\\household_power_consumption.txt"
+filename = paste("C:\\Users\\Patrick\\datasciencecoursera\\Course 4\\household",
+    "_power_consumption.txt", sep = "")
 fi = file(filename)
 
 #loads file into dataframe.  Used SQL to limit rows loaded to necessary dates
@@ -21,5 +22,6 @@ df$DateTime = strptime(df$DateTime, "%Y-%m-%d %H:%M:%S")
 
 #create histogram plot & save to png file
 png("plot1.png", width = 480, height = 480, units = "px")
-hist(df$Global_active_power, col = "red", main = "Global Active Power", xlab = "Global Active Power (kilowatts", ylab = "Frequency")
+hist(df$Global_active_power, col = "red", main = "Global Active Power", 
+     xlab = "Global Active Power (kilowatts", ylab = "Frequency")
 dev.off()
